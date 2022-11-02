@@ -10,5 +10,11 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/VaiPandey/demo-counter-app.git'
             }
         }
+
+        stage("Unit Test"){
+            steps{
+                sh 'mvn test'
+            }
+        }
     }
 }
