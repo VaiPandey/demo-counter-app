@@ -31,7 +31,7 @@ pipeline{
 
         stage("Code Analysis"){
             steps{
-                scripts{
+                script{
                     withSonarQubeEnv(installationName: 'Sonar_Scanner',credentialsId: 'Sonar_Authy') {
                         bat 'mvn clean package sonar:sonar'
                     }
