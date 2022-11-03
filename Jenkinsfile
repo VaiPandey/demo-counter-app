@@ -22,5 +22,11 @@ pipeline{
                 bat 'mvn verify -DskipUnitTests'
             }
         }
+
+        stage{
+            steps{
+                bat 'mvn clean install'
+            }
+        }
     }
 }
