@@ -31,8 +31,10 @@ pipeline{
 
         stage("Code Analysis"){
             steps{
-                withSonarQubeEnv(credentialsId: 'Sonar_Authy') {
-                    bat 'mvn clean package sonar:sonar'
+                scripts{
+                    withSonarQubeEnv(credentialsId: 'Sonar_Authy') {
+                        bat 'mvn clean package sonar:sonar'
+                    }
                 }
             }
         }
