@@ -13,7 +13,7 @@ pipeline{
 
         stage("Unit Test"){
             steps{
-                bat 'mvn --version'
+                bat 'mvn test'
             }
         }
     }
