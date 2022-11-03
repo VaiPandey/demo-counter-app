@@ -19,7 +19,7 @@ pipeline{
 
         stage("Integration Test"){
             steps{
-                bat 'mvn verify DskipUnitTests'
+                bat 'mvn verify DskipTests'
             }
         }
     }
