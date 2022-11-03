@@ -42,8 +42,7 @@ pipeline{
         stage("Code Analysis"){
             steps{
                 script{
-                    waitForQualityGate abortPipeline: false, credentialsId: 'Sonar_Authy'
-                    
+                    waitForQualityGate abortPipeline: false, credentialsId: 'Sonar_Authy'  
                 }
             }
         }
