@@ -39,7 +39,7 @@ pipeline{
             }
         }
 
-        stage("Code Analysis"){
+        stage("Quality Gate Analysis"){
             steps{
                 script{
                     waitForQualityGate abortPipeline: false, credentialsId: 'Sonar_Authy'  
