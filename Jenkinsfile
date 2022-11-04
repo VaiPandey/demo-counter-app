@@ -39,12 +39,19 @@ pipeline{
             }
         }
 
-        stage("Quality Gate Analysis"){
-            steps{
-                script{
-                    waitForQualityGate abortPipeline: false, credentialsId: 'Sonar_Authy'  
-                }
-            }
+        stage("Nexus Upload"){
+    steps{
+        script{
+            nexusArtifactUploader credentialsId: 'nexus_authy',
+            groupId: 'com.example',
+            nexusUrl: '192.168.1.12:8081', 
+            nexusVersion: 'nexus3', 
+            protocol: 'http', 
+            repository: 'springboot-repo', 
+            version: '1.0.0'
         }
+    }
+}
+        
     }
 }
