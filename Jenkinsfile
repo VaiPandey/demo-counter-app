@@ -42,6 +42,8 @@ pipeline{
         stage("Nexus Upload"){
     steps{
         script{
+
+            def readpomver = readMavenPom file: 'pom.xml'
             nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar', type: 'jar']], 
             credentialsId: 'nexus_authy', 
             groupId: 'com.example', 
@@ -49,7 +51,7 @@ pipeline{
             nexusVersion: 'nexus2', 
             protocol: 'http', 
             repository: 'springboot-repo', 
-            version: '1.0.0'
+            version: "${readpomver}"
         }
     }
 }
