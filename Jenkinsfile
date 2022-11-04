@@ -51,7 +51,7 @@ pipeline{
             nexusVersion: 'nexus2', 
             protocol: 'http', 
             repository: 'springboot-repo', 
-            version: "${readpomver}"
+            version: "${readpomver.version}"
         }
     }
 }
