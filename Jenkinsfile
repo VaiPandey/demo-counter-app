@@ -44,13 +44,15 @@ pipeline{
         script{
 
             def readpomver = readMavenPom file: 'pom.xml'
+            def nexusRepo = readpomver.version.endsWith("SNAPSHOT") ? 'springboot-snapshot' : 'springboot-repo' 
+
             nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/Uber.jar', type: 'jar']], 
             credentialsId: 'nexus_authy', 
             groupId: 'com.example', 
             nexusUrl: '192.168.1.12:8081', 
             nexusVersion: 'nexus2', 
             protocol: 'http', 
-            repository: 'springboot-repo', 
+            repository: nexusRepo, 
             version: "${readpomver.version}"
         }
     }
