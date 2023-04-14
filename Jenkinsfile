@@ -3,9 +3,9 @@ pipeline{
         label 'Agent_01'
     }
     stages{
-        stage('Test'){
+        stage("Git Checkout"){
             steps{
-                bat'pwd'
+                git branch: 'main', url: 'https://github.com/VaiPandey/demo-counter-app.git'
             }
         }
     }
