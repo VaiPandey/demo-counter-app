@@ -3,7 +3,7 @@ pipeline{
         label 'Agent_01'
     }
     tools{
-        maven MAVEN
+        maven 'MAVEN'
     }
     stages{
         stage("Git Checkout"){
